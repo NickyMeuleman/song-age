@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Song Age</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <header>
+      <a href="/">Song age</a>
+    </header>
+    <main>
+      <h1>How old is this song?</h1>
+      <ol>
+        <li>Search for a song.</li>
+        <li>Feel old.</li>
+      </ol>
+      <form id="form">
+        <label for="artist">Artist</label>
+        <input type="text" id="artist" name="artist" placeholder="Nirvana" />
+        <label for="track">Title</label>
+        <input
+          type="text"
+          id="track"
+          name="track"
+          placeholder="Smells Like Teen Spirit"
+        />
+        <input type="submit" value="FEEL OLD" />
+      </form>
+    </main>
+    <script>
+      const formEl = document.getElementById("form");
+
+      formEl.addEventListener("submit", (e) => {
+        e.preventDefault();
+        // construct a FormData object, which fires the formdata event
+        new FormData(formEl);
+      });
+
+      formEl.onformdata = (e) => {
+        let data = e.formData;
+        let artist = data.get("artist");
+        let track = data.get("track");
+
+        // make sure the parts are URL safe
+        artist = encodeURIComponent(artist);
+        track = encodeURIComponent(track);
+
+        window.location.assign(`/${artist}/${track}`);
+      };
+    </script>
+  </body>
+</html>
