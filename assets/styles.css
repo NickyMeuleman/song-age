@@ -47,7 +47,7 @@ h1 {
   color: var(--darkest);
 }
 
-ol {
+ul, ol {
   padding-left: 0;
   list-style-position: inside;
 }

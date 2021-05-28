@@ -48,7 +48,11 @@
         artist = encodeURIComponent(artist);
         track = encodeURIComponent(track);
 
-        window.location.assign(`/${artist}/${track}`);
+        if (!artist.length) {
+          window.location.assign(`/${track}`);
+        } else {
+          window.location.assign(`/${artist}/${track}`);
+        }
       };
     </script>
   </body>
