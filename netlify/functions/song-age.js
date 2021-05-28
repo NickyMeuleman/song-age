@@ -2,7 +2,7 @@ require("dotenv").config();
 const { builder } = require("@netlify/functions");
 const fetch = require("node-fetch");
 
-function getHTML({ name, year }) {
+function getHTML({ name, year, url }) {
   return `
   <!DOCTYPE html>
   <html lang="en">
@@ -20,12 +20,14 @@ function getHTML({ name, year }) {
         </nav>
       </header>
       <main>
-        <p>${name} was released in ${year}.</p>
-        <p>That was <span id="year">0</span> years ago</p>
+        <p id="released">
+          <a href=${url}>${name}</a> was released in <span>${year}</span>.
+        </p>
+        <p>That was <span id="age">0</span> years ago</p>
       </main>
       <script>
-      const yearEl = document.getElementById("year");
-      yearEl.textContent = new Date().getFullYear() - ${year};
+        const yearEl = document.getElementById("age");
+        yearEl.textContent = new Date().getFullYear() - ${year};
       </script>
     </body>
   </html>
@@ -47,6 +49,8 @@ async function getReleaseInfo({ track, artist }) {
   const info = data.results.reduce(
     (acc, item) => {
       const itemYear = parseInt(item.year);
+      const itemUrl = "https://www.discogs.com" + item.uri;
+
       if (Number.isNaN(itemYear)) {
         return acc;
       }
@@ -54,9 +58,10 @@ async function getReleaseInfo({ track, artist }) {
       if (Number.isNaN(newYear)) {
         return acc;
       }
-      return { name: item.title, year: newYear };
+      
+      return { name: item.title, year: newYear, url: itemUrl };
     },
-    { name: "", year: Infinity }
+    { name: "", year: Infinity, url: "" }
   );
 
   return info;
@@ -65,7 +70,7 @@ async function getReleaseInfo({ track, artist }) {
 const handler = async (event) => {
   const { path } = event;
   const [, artist, track] = path.split("/");
-  const { name, year } = await getReleaseInfo({
+  const info = await getReleaseInfo({
     track: decodeURIComponent(track),
     artist: decodeURIComponent(artist),
   });
@@ -75,10 +80,7 @@ const handler = async (event) => {
     headers: {
       "Content-Type": "text/html",
     },
-    body: getHTML({
-      name,
-      year,
-    }),
+    body: getHTML(info),
   };
 };
 

@@ -1,55 +1,101 @@
 :root {
-    --background: white;
-    --darkest: #321;
-    --text: #543;
-    --lightest: white;
-  }
-  
-  * {
-    box-sizing: border-box;
-    margin: 0;
-  }
-  
-  body * + * {
-    margin-top: 1rem;
-  }
-  
-  html,
-  body {
-    background-color: var(--background);
-    color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
-      Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-    font-size: 18px;
-    line-height: 1.45;
-  }
-  
-  body {
-    min-height: 100vh;
-    padding: 2rem 0;
-  }
-  
-  header,
-  main {
-    background: var(--lightest);
-    max-width: 90vw;
-    margin: 3rem auto 0;
-    border: 1px solid var(--darkest);
-    border-radius: 0.5rem;
-    padding: 1rem 2rem;
-    width: 570px;
-  }
-  
-  header a {
-    color: var(--darkest);
-    font-weight: bold;
-    text-decoration: none;
-  }
-  
-  main {
-    margin-top: 2rem;
-  }
-  
-  h1 {
-    color: var(--darkest);
-  }
+  --background: white;
+  --text: #151a1e;
+  --textOnPrimary: #e5edff;
+  --primary: #2250f4;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body * + * {
+  margin-top: 1rem;
+}
+
+html,
+body {
+  background-color: var(--background);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+body {
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+header,
+main {
+  max-width: 90vw;
+  width: 60vw;
+  margin: 2rem auto 0;
+  padding: 1rem 2rem;
+}
+
+header a {
+  color: var(--primary);
+  font-weight: bold;
+  font-size: x-large;
+}
+
+h1 {
+  color: var(--darkest);
+}
+
+ol {
+  padding-left: 0;
+  list-style-position: inside;
+}
+
+a {
+  color: var(--primary);
+}
+
+form {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+}
+
+input[type="text"] {
+  /* yeet user agent styling */
+  all: unset;
+
+  margin-top: 0;
+  padding: 1rem 0.75rem;
+  background: rgb(243, 244, 246);
+  border-radius: 6px;
+}
+
+input[type="text"]:focus {
+  box-shadow: 0 0 0 1px var(--primary);
+}
+
+input[type="submit"] {
+  /* yeet user agent styling */
+  all: unset;
+
+  justify-self: start;
+  color: var(--textOnPrimary);
+  background: var(--primary);
+  border-radius: 6px;
+  padding: 8px 24px;
+  margin-top: 1rem;
+}
+
+input[type="submit"]:focus {
+  /* fallback first */
+  outline: 2px dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+
+#age, #released span {
+  color: var(--primary);
+  font-size: xx-large;
+}
