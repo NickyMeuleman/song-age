@@ -6,7 +6,7 @@ function getHTML({ name, year, url, query }) {
   let html;
   if (!name) {
     html = `
-<!DOCTYPE html>
+    <!DOCTYPE html>
     <html lang="en">
       <head>
         <meta charset="UTF-8" />
