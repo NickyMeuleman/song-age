@@ -25,22 +25,36 @@ body {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
-  padding: 2rem 0;
+}
+
+main {
+  flex: 1;
 }
 
 header,
-main {
+main,
+footer {
   max-width: 90vw;
-  width: 60vw;
-  margin: 2rem auto 0;
-  padding: 1rem 2rem;
+  width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+header {
+  padding: 1rem 0;
 }
 
 header a {
   color: var(--primary);
   font-weight: bold;
   font-size: x-large;
+}
+
+footer {
+  text-align: center;
 }
 
 h1 {
@@ -59,8 +73,11 @@ a {
 form {
   margin-top: 2rem;
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto;
+  grid-template-columns: minmax(0,1fr);
+}
+
+form label .info {
+  color: #757575;
 }
 
 input[type="text"] {
@@ -71,6 +88,11 @@ input[type="text"] {
   padding: 1rem 0.75rem;
   background: rgb(243, 244, 246);
   border-radius: 6px;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
 }
 
 input[type="text"]:focus {

@@ -12,7 +12,31 @@ function getHTML({ name, year, url, query }) {
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>In ${year}, ${name} was released — Song Age</title>
+        <title>No results found! — Song Age</title>
+        <link
+        rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎵</text></svg>"
+        />
+        <meta name="description" content="Find out how old a song is." />
+        <meta
+          name="image"
+          content="https://song-age.netlify.app/assets/og-image.png"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Song Age" />
+        <meta property="og:description" content="Find out how old a song is." />
+        <meta
+          property="og:image"
+          content="https://song-age.netlify.app/assets/og-image.png"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:creator" content="@NMeuleman" />
+        <meta name="twitter:title" content="Song Age" />
+        <meta name="twitter:description" content="Find out how old a song is." />
+        <meta
+          name="twitter:image"
+          content="https://song-age.netlify.app/assets/og-image.png"
+        />
         <link rel="stylesheet" href="/assets/styles.css" />
       </head>
       <body>
@@ -31,9 +55,14 @@ function getHTML({ name, year, url, query }) {
             <li> Track: ${query.track || "empty"}</li>
           </ul>
           <p>
-            <a href="/" rel="home">Do a new search</a>
+            <a href="/">Search for an other song?</a>
           </p>
         </main>
+        <footer>
+          <a href="https://github.com/NickyMeuleman/song-age">Source code</a>
+          ·
+          <a href="https://twitter.com/NMeuleman">Created by Nicky Meuleman</a>
+        </footer>
       </body>
     </html>
     `;
@@ -46,12 +75,36 @@ function getHTML({ name, year, url, query }) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>In ${year}, ${name} was released — Song Age</title>
+        <link
+        rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎵</text></svg>"
+        />
+        <meta name="description" content="In ${year}, ${name} was released" />
+        <meta
+          name="image"
+          content="https://song-age.netlify.app/assets/og-image.png"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Song Age" />
+        <meta property="og:description" content="In ${year}, ${name} was released" />
+        <meta
+          property="og:image"
+          content="https://song-age.netlify.app/assets/og-image.png"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:creator" content="@NMeuleman" />
+        <meta name="twitter:title" content="Song Age" />
+        <meta name="twitter:description" content="In ${year}, ${name} was released" />
+        <meta
+          name="twitter:image"
+          content="https://song-age.netlify.app/assets/og-image.png"
+        />
         <link rel="stylesheet" href="/assets/styles.css" />
       </head>
       <body>
         <header>
           <nav>
-            <a href="/" rel="home">Song Age</a>
+            <a href="/">Song Age</a>
           </nav>
         </header>
         <main>
@@ -59,7 +112,15 @@ function getHTML({ name, year, url, query }) {
             <a href=${url}>${name}</a> was released in <span>${year}</span>.
           </p>
           <p>That was <span id="age">0</span> years ago</p>
+          <p>
+            <a href="/">Search for an other song?</a>
+          </p>
         </main>
+        <footer>
+          <a href="https://github.com/NickyMeuleman/song-age">Source code</a>
+          ·
+          <a href="https://twitter.com/NMeuleman">Created by Nicky Meuleman</a>
+        </footer>
         <script>
           const yearEl = document.getElementById("age");
           yearEl.textContent = new Date().getFullYear() - ${year};

@@ -5,19 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Song Age</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎵</text></svg>"
+    />
     <link rel="stylesheet" href="/assets/styles.css" />
     <meta name="description" content="Find out how old a song is." />
-    <meta name="image" content="https://song-age.netlify.app/assets/og-image.png" />
+    <meta
+      name="image"
+      content="https://song-age.netlify.app/assets/og-image.png"
+    />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://song-age.netlify.app" />
     <meta property="og:title" content="Song Age" />
     <meta property="og:description" content="Find out how old a song is." />
-    <meta property="og:image" content="https://song-age.netlify.app/assets/og-image.png" />
+    <meta
+      property="og:image"
+      content="https://song-age.netlify.app/assets/og-image.png"
+    />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:creator" content="@NMeuleman" />
     <meta name="twitter:title" content="Song Age" />
     <meta name="twitter:description" content="Find out how old a song is." />
-    <meta name="twitter:image" content="https://song-age.netlify.app/assets/og-image.png" />
+    <meta
+      name="twitter:image"
+      content="https://song-age.netlify.app/assets/og-image.png"
+    />
   </head>
   <body>
     <header>
@@ -30,8 +43,12 @@
         <li>Feel old.</li>
       </ol>
       <form id="form">
-        <label for="artist">Artist</label>
-        <input type="text" id="artist" name="artist" placeholder="Nirvana" />
+        <div>
+          <label for="artist"
+            >Artist <span class="info">(optional)</span></label
+          >
+          <input type="text" id="artist" name="artist" placeholder="Nirvana" />
+        </div>
         <label for="track">Title</label>
         <input
           type="text"
@@ -43,6 +60,11 @@
         <input type="submit" value="FEEL OLD" />
       </form>
     </main>
+    <footer>
+      <a href="https://github.com/NickyMeuleman/song-age">Source code</a>
+      ·
+      <a href="https://twitter.com/NMeuleman">Created by Nicky Meuleman</a>
+    </footer>
     <script>
       const formEl = document.getElementById("form");
 
